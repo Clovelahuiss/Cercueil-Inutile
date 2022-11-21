@@ -6,13 +6,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PIXEL_PIN    12  // Digital IO pin connected to the NeoPixels.
+#define PIXEL_PIN    13  // Digital IO pin connected to the NeoPixels.
 #define PIXEL_COUNT 144  // Number of NeoPixels
 
 
 // Use pins 2 and 3 to communicate with DFPlayer Mini
-static const uint8_t PIN_MP3_TX = 2; // Connects to module's RX
-static const uint8_t PIN_MP3_RX = 3; // Connects to module's TX
+static const uint8_t PIN_MP3_TX = 1; // Connects to module's RX
+static const uint8_t PIN_MP3_RX = 0; // Connects to module's TX
 SoftwareSerial softwareSerial(PIN_MP3_RX, PIN_MP3_TX);
 
 // Create the Player object
@@ -21,7 +21,7 @@ int motor1s1 = 4;
 int motor1s2 = 5;
 int motor2s1 = 6;
 int motor2s2 = 7;
-int btn = 13;
+int btn = 12;
 int pos = 0;
 long unsigned prevMillis = 0;
 Servo doorServo;
@@ -65,10 +65,10 @@ void setup() {
   }
 }
 
-void loop() {
+void loop() {/*
   // put your main code here, to run repeatedly:
-  if (rand() % 9 == 0) {
-    simpleClose();
+  if (rand() % 9 == 0) {*/
+    simpleClose();/*
   }
   else if (rand() % 9 == 1) {
     slow();
@@ -93,7 +93,7 @@ void loop() {
   }
   else if (rand() % 9 == 8) {
     matrix();
-  }
+  }*/
 }
 void motor() {
   if (digitalRead(btn) == HIGH) {
@@ -319,7 +319,7 @@ void motor() {
 
       // play song
       player.volume(5);
-      player.play(2);
+      player.play(1);
     }
   }
 
